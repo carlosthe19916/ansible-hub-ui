@@ -119,8 +119,8 @@ class Search extends React.Component<RouteComponentProps, IState> {
                       params={params}
                       filterConfig={[
                         {
-                          id: 'collection',
-                          title: 'Collection',
+                          id: 'keywords',
+                          title: 'Keywords',
                         },
                         {
                           id: 'tags',
