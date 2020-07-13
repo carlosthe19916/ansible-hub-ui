@@ -45,17 +45,13 @@ export const Routes = props => {
   const path = props.childProps.location.pathname;
 
   return (
-    <Switch>      
+    <Switch>
       <InsightsRoute
         path={Paths.notFound}
         component={NotFound}
         rootClass='root'
       />
-      <InsightsRoute
-        path={Paths.home}
-        component={Home}
-        rootClass='root'
-      />
+      <InsightsRoute path={Paths.home} component={Home} rootClass='root' />
       {/* Finally, catch all unmatched routes */}
       <Route
         render={() =>
