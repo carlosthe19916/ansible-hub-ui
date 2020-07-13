@@ -15,27 +15,6 @@ export function formatPath(path: Paths, data: any, params?: object) {
 }
 
 export enum Paths {
-  myCollections = '/my-namespaces/:namespace',
-  myNamespaces = '/my-namespaces',
-  editNamespace = '/my-namespaces/edit/:namespace',
-  myImports = '/my-imports',
-  login = '/login',
-  logout = '/logout',
-  search = '/',
-  collectionDocsPage = '/:namespace/:collection/docs/:page',
-  collectionDocsIndex = '/:namespace/:collection/docs',
-  collectionContentDocs = '/:namespace/:collection/content/:type/:name',
-  collectionContentList = '/:namespace/:collection/content',
-  collectionImportLog = '/:namespace/:collection/import-log',
-  collection = '/:namespace/:collection',
-  namespace = '/:namespace',
-  partners = '/partners',
+  home = '/',
   notFound = '/not-found',
-  token = '/token',
-  certificationDashboard = '/certification-dashboard',
-  userList = '/users',
-  createUser = '/users/create',
-  editUser = '/users/:userID/edit',
-  userDetail = '/users/:userID',
-  userProfileSettings = '/settings/user-profile',
 }

@@ -5,52 +5,10 @@ import asyncComponent from '../../utilities/asyncComponent';
 import some from 'lodash/some';
 import { Paths } from '../../paths';
 
-/**
- * Aysnc imports of components
- *
- * https://webpack.js.org/guides/code-splitting/
- * https://reactjs.org/docs/code-splitting.html
- *
- * pros:
- *      1) code splitting
- *      2) can be used in server-side rendering
- * cons:
- *      1) nameing chunk names adds unnecessary docs to code,
- *         see the difference with DashboardMap and InventoryDeployments.
- *
- */
-const EditNamespace = asyncComponent(() =>
+const Home = asyncComponent(() =>
   import(
-    /* webpackChunkName: "namespace_detail" */
-    '../../containers/edit-namespace/edit-namespace'
-  ),
-);
-
-const CollectionDetail = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "collection_detail" */
-    '../../containers/collection-detail/collection-detail'
-  ),
-);
-
-const CollectionContent = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "collection_detail" */
-    '../../containers/collection-detail/collection-content'
-  ),
-);
-
-const CollectionDocs = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "collection_detail" */
-    '../../containers/collection-detail/collection-docs'
-  ),
-);
-
-const CollectionImportLog = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "collection_detail" */
-    '../../containers/collection-detail/collection-import-log'
+    /* webpackChunkName: "not_found" */
+    '../../containers/home/home'
   ),
 );
 
@@ -58,62 +16,6 @@ const NotFound = asyncComponent(() =>
   import(
     /* webpackChunkName: "not_found" */
     '../../containers/not-found/not-found'
-  ),
-);
-
-const MyNamespaces = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "namespace_list" */
-    '../../containers/namespace-list/my-namespaces'
-  ),
-);
-
-const ManageNamespace = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "namespace_detail" */
-    '../../containers/namespace-detail/manage-namespace'
-  ),
-);
-
-const PartnerDetail = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "namespace_detail" */
-    '../../containers/namespace-detail/partner-detail'
-  ),
-);
-
-const Partners = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "namespace_list" */
-    '../../containers/namespace-list/partners'
-  ),
-);
-
-const MyImports = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "my_imports" */
-    '../../containers/my-imports/my-imports'
-  ),
-);
-
-const Search = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "search" */
-    '../../containers/search/search'
-  ),
-);
-
-const TokenPage = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "settings" */
-    '../../containers/token/token-insights'
-  ),
-);
-
-const CertificationDashboard = asyncComponent(() =>
-  import(
-    /* webpackChunkName: "settings" */
-    '../../containers/certification-dashboard/certification-dashboard'
   ),
 );
 
@@ -145,8 +47,8 @@ export const Routes = props => {
   return (
     <Switch>
       <InsightsRoute
-        path={Paths.certificationDashboard}
-        component={CertificationDashboard}
+        path={Paths.home}
+        component={Home}
         rootClass='root'
       />
       <InsightsRoute
@@ -154,72 +56,6 @@ export const Routes = props => {
         component={NotFound}
         rootClass='root'
       />
-      <InsightsRoute
-        path={Paths.token}
-        component={TokenPage}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.partners}
-        component={Partners}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.editNamespace}
-        component={EditNamespace}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.myCollections}
-        component={ManageNamespace}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.myNamespaces}
-        component={MyNamespaces}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.collectionDocsPage}
-        component={CollectionDocs}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.collectionDocsIndex}
-        component={CollectionDocs}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.collectionContentDocs}
-        component={CollectionDocs}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.collectionContentList}
-        component={CollectionContent}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.collectionImportLog}
-        component={CollectionImportLog}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.myImports}
-        component={MyImports}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.collection}
-        component={CollectionDetail}
-        rootClass='root'
-      />
-      <InsightsRoute
-        path={Paths.namespace}
-        component={PartnerDetail}
-        rootClass='root'
-      />
-      <InsightsRoute path={Paths.search} component={Search} rootClass='root' />
       {/* Finally, catch all unmatched routes */}
       <Route
         render={() =>

@@ -4,24 +4,15 @@ Frontend for Ansible Automation Hub. The backend for this project can be [found 
 
 # Setting up Your Dev Environment
 
-## Develop using Docker Compose (Recommended)
+## Develop in Standalone Mode
 
-This project can now be run as a container alongside the API. Just follow the instructions on the [ansibe/galaxy_ng wiki](https://github.com/ansible/galaxy_ng/wiki/Development-Setup).
-
-## Develop without containers
-
-This app can be developed in standalone mode or insights mode. Insights mode compiles the app to be run on the Red Hat cloud services platform (insights) and requires access to the Red Hat VPN as well as the insights proxy. Standalone mode only requires a running instance of the galaxy API for the UI to connect to.
-
-### Develop in Standalone Mode
-
-1. Clone the [galaxy_ng](https://github.com/ansible/galaxy_ng) repo and follow the instructions for starting up the API.
-2. Install node. Node v13+ are known to work. Older versions may work as well.
-3. `npm install`
-4. `npm run start-standalone`
+1. Install node. Node v13+ are known to work. Older versions may work as well.
+1. `npm ci`
+1. `npm run start-standalone`
 
 The app will run on http://localhost:8002 and proxy requests for `api/automation-hub` to the api on `http://localhost:5001`.
 
-### Develop in Insights Mode
+## Develop in Insights Mode
 
 **NOTE:** This option is only available to Red Hat employees who have access to the Red Hat VPN. Community contributors should follow setup for [standalone mode](#develop-in-standalone-mode)
 
@@ -62,31 +53,6 @@ REALPATH=`python2 -c 'import os,sys;print os.path.realpath(sys.argv[1])' $SPANDX
 ```
 
 to use `python` instead of `python2`.
-
-#### Run Automation Hub
-
-Once the insights proxy is running, open a new terminal, navigate to your local copy of `ansible-hub-ui` and execute
-
-1. `npm install`
-2. `npm run start`
-
-To access the app, visit: https://ci.foo.redhat.com:1337/insights/automation-hub
-
-## Deploying
-
-- The Platform team is using Travis to deploy the application
-  - The Platform team will help you set up the Travis instance if this is the route you are wanting to take
-
-### How it works
-
-- any push to the `{REPO}` `master` branch will deploy to a `{REPO}-build` `ci-beta` branch
-- any push to the `{REPO}` `master-stable` branch will deploy to a `{REPO}-build` `ci-stable` branch
-- any push to the `{REPO}` `qa-beta` branch will deploy to a `{REPO}-build` `qa-beta` branch
-- any push to the `{REPO}` `qa-stable` branch will deploy to a `{REPO}-build` `qa-stable` branch
-- any push to the `{REPO}` `prod-beta` branch will deploy to a `{REPO}-build` `prod-beta` branch
-- any push to the `{REPO}` `prod-stable` branch will deploy to a `{REPO}-build` `prod-stable` branch
-- Pull requests (based on master) will not be pushed to `{REPO}-build` `master` branch
-  - If the PR is accepted and merged, master will be rebuilt and will deploy to `{REPO}-build` `ci-beta` branch
 
 ## Patternfly
 
