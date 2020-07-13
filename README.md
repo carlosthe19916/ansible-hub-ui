@@ -16,8 +16,6 @@ The app will run on http://localhost:8002 and proxy requests for `api/automation
 
 **NOTE:** This option is only available to Red Hat employees who have access to the Red Hat VPN. Community contributors should follow setup for [standalone mode](#develop-in-standalone-mode)
 
-To enable insights mode set `DEPLOYMENT_MODE: 'insights'` in [custom.dev.config.js](./custom.dev.config.js).
-
 This app is part of the Red Hat cloud platform. Because of that the app needs to be loaded within the context of cloud.redhat.com. This is done by accessing the app via the [insights-proxy project](https://github.com/RedHatInsights/insights-proxy).
 
 #### Set up Insights Proxy
@@ -43,6 +41,18 @@ SPANDX_CONFIG=/path/to/ansible-hub-ui/profiles/local-frontend-and-api.js bash /p
 ```
 
 This should launch `insights-proxy`, which will redirect the routes defined in `profiles/local-frontend-and-api.js` to the automation hub UI running locally on your machine.
+
+### Run the application
+
+Execute:
+
+```
+npm run start
+```
+
+At this point you have `insights-proxy` and your this application running (previous command) so you can open:
+
+[https://ci.foo.redhat.com:1337/beta/migrations/migration-analytics/](https://ci.foo.redhat.com:1337/beta/migrations/migration-analytics/)
 
 ##### NOTE
 

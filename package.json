@@ -114,7 +114,7 @@
         "storybook": "start-storybook"
     },
     "insights": {
-        "appname": "automation-hub"
+        "appname": "migration-analytics"
     },
     "husky": {
         "hooks": {

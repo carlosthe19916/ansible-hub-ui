@@ -18,7 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     insights.chrome.init();
-    insights.chrome.identifyApp('automation-hub');
+    insights.chrome.identifyApp('migration-analytics');
     insights.chrome.navigation(buildNavigation());
 
     // This listens for insights navigation events, so this will fire

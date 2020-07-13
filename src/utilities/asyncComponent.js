@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { LoadingPageWithHeader } from '../components';
 
 /**
  * Webpack allows loading components asynchronously by using import().
@@ -20,33 +19,29 @@ import { LoadingPageWithHeader } from '../components';
  * @returns {AsyncComponent} The imported component or can return a loading
  */
 export default function asyncComponent(importComponent) {
-  class AsyncComponent extends Component {
-    constructor(props) {
-      super(props);
+    class AsyncComponent extends Component {
+        constructor(props) {
+            super(props);
 
-      this.state = {
-        component: null,
-      };
+            this.state = {
+                component: null
+            };
+        }
+
+        async componentDidMount() {
+            const { default: component } = await importComponent();
+
+            this.setState({
+                component
+            });
+        }
+
+        render() {
+            const C = this.state.component;
+
+            return C ? <C {...this.props} /> : null;
+        }
     }
 
-    async componentDidMount() {
-      const { default: component } = await importComponent();
-
-      this.setState({
-        component,
-      });
-    }
-
-    render() {
-      const C = this.state.component;
-
-      return C ? (
-        <C {...this.props} />
-      ) : (
-        <LoadingPageWithHeader></LoadingPageWithHeader>
-      );
-    }
-  }
-
-  return AsyncComponent;
+    return AsyncComponent;
 }

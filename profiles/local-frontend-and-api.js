@@ -1,7 +1,7 @@
 /*global module*/
 
-const SECTION = 'ansible';
-const APP_ID = 'automation-hub';
+const SECTION = 'migrations';
+const APP_ID = 'migration-analytics';
 const FRONTEND_PORT = 8002;
 const API_PORT = 5001;
 const routes = {};
