@@ -46,11 +46,7 @@ export const Routes = props => {
 
   return (
     <Switch>
-      <InsightsRoute
-        path={Paths.home}
-        component={Home}
-        rootClass='root'
-      />
+      <InsightsRoute path={Paths.home} component={Home} rootClass='root' />
       <InsightsRoute
         path={Paths.notFound}
         component={NotFound}

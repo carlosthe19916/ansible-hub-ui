@@ -46,7 +46,7 @@ class App extends React.Component<RouteComponentProps> {
         nav={
           <Nav theme='dark'>
             <NavList>
-            <NavItem>
+              <NavItem>
                 <Link to={Paths.home}>Home</Link>
               </NavItem>
               <NavItem>
